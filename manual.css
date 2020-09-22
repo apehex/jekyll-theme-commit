@@ -1,8 +1,89 @@
-.tab-header {
-	width: 30%;
+/*
+    Hide the radio buttons
+*/
+
+.vertical-tabset input[type="radio"] {
+    position: absolute;
+    left: -200vw;
 }
 
-.tab-panel {
-	left: 30%;
-	display: none;
+/*
+    Toggle
+*/
+
+.vertical-tabset .vertical-tab .tab-panel {
+    display: none;
+}
+
+.vertical-tabset .vertical-tab input[type="radio"]:checked ~ .tab-panel {
+    display: block;
+}
+
+/*
+    Common style
+*/
+
+.vertical-tabset {
+    position: relative;
+}
+
+.vertical-tabset .vertical-tab {
+    display: block;
+}
+
+.vertical-tabset input[type="radio"] + label {
+    position: relative;
+    display: inline-block;
+    margin: 0 !important;
+    padding: 15px 15px 25px !important;
+    border: 2px solid transparent;
+    border-right: 0;
+    cursor: pointer;
+    font-weight: bold;
+    width: 40%;
+    z-index:100;
+
+    &::before {
+        display: none !important;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 15px;
+        bottom: 10px;
+        width: 22px;
+        height: 4px;
+        background: rgba(210,215,217,0.75);
+    }
+}
+
+.vertical-tabset .vertical-tab .tab-panel {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    padding: 0 30px !important;
+    margin: 0 0 0 -2px;
+    border-left: 2px solid #0000ff;
+    height: 100%;
+}
+
+/*
+    Active
+*/
+
+.vertical-tabset label:hover,
+.vertical-tabset input[type="radio"]:focus + label {
+    color: #0000ff;
+}
+
+.vertical-tabset label:hover::after,
+.vertical-tabset input[type="radio"]:focus + label::after,
+.vertical-tabset input[type="radio"]:checked + label::after {
+    background: #0000ff;
+}
+
+.vertical-tabset input[type="radio"]:checked + label {
+    border-color: #0000ff;
+    border-right: 2px solid #ffffff;
 }
