@@ -1,0 +1,8 @@
+.tab-header {
+	width: 30%;
+}
+
+.tab-panel {
+	left: 30%;
+	display: none;
+}
