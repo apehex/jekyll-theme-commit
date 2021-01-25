@@ -1,4 +1,21 @@
 /*
+    Text
+*/
+
+span.log-tree, span.title {
+	font-weight: bold;
+}
+
+
+/*
+    Topology
+*/
+
+.log-tree {
+	width: 30%;
+}
+
+/*
     Hide the radio buttons
 */
 
@@ -31,15 +48,14 @@
     display: block;
 }
 
-.vertical-tabset input[type="radio"] + label {
+.vertical-tabset input[type="radio"] + .tab-header {
     position: relative;
     display: inline-block;
     margin: 0 !important;
-    padding: 15px 15px 25px !important;
+    padding: 0;
     border: 2px solid transparent;
     border-right: 0;
     cursor: pointer;
-    font-weight: bold;
     width: 40%;
     z-index:100;
 
@@ -72,18 +88,18 @@
     Active
 */
 
-.vertical-tabset label:hover,
-.vertical-tabset input[type="radio"]:focus + label {
+.vertical-tabset .tab-header:hover,
+.vertical-tabset input[type="radio"]:focus + .tab-header {
     color: #0000ff;
 }
 
-.vertical-tabset label:hover::after,
-.vertical-tabset input[type="radio"]:focus + label::after,
-.vertical-tabset input[type="radio"]:checked + label::after {
+.vertical-tabset .tab-header:hover::after,
+.vertical-tabset input[type="radio"]:focus + .tab-header::after,
+.vertical-tabset input[type="radio"]:checked + .tab-header::after {
     background: #0000ff;
 }
 
-.vertical-tabset input[type="radio"]:checked + label {
+.vertical-tabset input[type="radio"]:checked + .tab-header {
     border-color: #0000ff;
     border-right: 2px solid #ffffff;
 }
