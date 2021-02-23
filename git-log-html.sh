@@ -3,7 +3,7 @@
 # A harder variant.
 #
 # git log -p (--patch)
-#   affiche toutes les diffs 
+#   affiche toutes les diffs
 
 set -o nounset
 set -o pipefail
@@ -14,7 +14,7 @@ escape-segments() {
 import cgi, re, sys
 
 print re.sub(
-  r"\x00([^\x00]*)\x00", 
+  r"\x00([^\x00]*)\x00",
   lambda match: cgi.escape(match.group(1)),
   sys.stdin.read())
 '
@@ -49,12 +49,7 @@ git-log-html() {
   echo '<div class="vertical-tabset">'
 
   local num_fields=2  # 2 fields contain arbitrary text
-  local format='<div id="%H" class="vertical-tab">
-    <input type="radio" name="git-log-html" id="option-%h">
-    <label for="option-%h" class="tab-header"><div class="log-tree"></div><div class="title">%s</div></label>
-    <section class="tab-panel">
-    </section>
-  </div>'
+  local format="$(cat format.html)"
 
   local num_entries=5
   git log -n $num_entries --pretty="format:$format" > tmp.bin
