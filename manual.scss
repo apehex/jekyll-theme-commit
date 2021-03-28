@@ -1,105 +1,113 @@
 /*
     Text
 */
-
-span.log-tree, span.title {
-	font-weight: bold;
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: monospace;
+    font-size: 2vmin;
 }
 
+span.tree, label.title {
+	font-weight: bold;
+}
 
 /*
     Topology
 */
 
-.log-tree {
-	width: 30%;
-}
-
-/*
-    Hide the radio buttons
-*/
-
-.vertical-tabset input[type="radio"] {
-    position: absolute;
-    left: -200vw;
+.tree {
+    display: inline-block;
+	width: 2%;
 }
 
 /*
     Toggle
 */
 
-.vertical-tabset .vertical-tab .tab-panel {
+.tabset .toggle {
     display: none;
-}
-
-.vertical-tabset .vertical-tab input[type="radio"]:checked ~ .tab-panel {
-    display: block;
 }
 
 /*
     Common style
 */
 
-.vertical-tabset {
+.tabset {
     position: relative;
 }
 
-.vertical-tabset .vertical-tab {
+.tabset .tab {
     display: block;
 }
 
-.vertical-tabset input[type="radio"] + .tab-header {
+/*
+    Title
+*/
+
+.tabset .toggle + .title {
     position: relative;
     display: inline-block;
-    margin: 0 !important;
+    margin: 0;
     padding: 0;
-    border: 2px solid transparent;
-    border-right: 0;
+    border: 0;
     cursor: pointer;
-    width: 40%;
-    z-index:100;
+    width: 100%;
+    z-index: 100;
 
-    &::before {
-        display: none !important;
-    }
-
-    &::after {
-        content: "";
-        position: absolute;
-        left: 15px;
-        bottom: 10px;
-        width: 22px;
-        height: 4px;
-        background: rgba(210,215,217,0.75);
-    }
+    transition-property: background-color;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out; 
 }
 
-.vertical-tabset .vertical-tab .tab-panel {
-    position: absolute;
+/*
+    Patch
+*/
+
+.tabset .tab .patch {
+    display: block;
+    position: relative;
     top: 0;
-    left: 40%;
-    padding: 0 30px !important;
-    margin: 0 0 0 -2px;
-    border-left: 2px solid #0000ff;
-    height: 100%;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    overflow: hidden;
+
+    max-height: 0;
+    transition-property: max-height, background-color;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+}
+
+/*
+    Diff
+*/
+.remove {
+  color: red;
+}
+
+.add {
+  color: green;
 }
 
 /*
     Active
 */
 
-.vertical-tabset .tab-header:hover,
-.vertical-tabset input[type="radio"]:focus + .tab-header {
+.tabset .title:hover,
+.tabset .toggle:focus + .title {
     color: #0000ff;
 }
 
-.vertical-tabset .tab-header:hover::after,
-.vertical-tabset input[type="radio"]:focus + .tab-header::after,
-.vertical-tabset input[type="radio"]:checked + .tab-header::after {
-    background: #0000ff;
+.tabset .toggle:checked + .title {
+    background-color: #111111;
 }
 
-.vertical-tabset input[type="radio"]:checked + .tab-header {
-    border-color: #0000ff;
-    border-right: 2px solid #ffffff;
+.tabset .tab .toggle:checked ~ .patch {
+    max-height: 100vh;
+    background-color: #111111;
 }
+
+/*# sourceMappingURL=manual.css.map */

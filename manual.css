@@ -5,8 +5,7 @@ body {
   background-color: #000000;
   color: #ffffff;
   font-family: monospace;
-  font-size: 2vmin;
-}
+  font-size: 2vmin; }
 
 span.tree, label.title {
   font-weight: bold; }
@@ -19,29 +18,10 @@ span.tree, label.title {
   width: 2%; }
 
 /*
-    Hide the checkbox buttons
+    Toggle
 */
 .tabset .toggle {
   display: none; }
-
-/*
-    Toggle
-*/
-.tabset .tab .patch {
-  display: block;
-  position: relative;
-  top: 0;
-  left: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  max-height: 0;
-  width: 100%;
-  overflow: hidden;
-
-  transition-property: max-height, background-color;
-  transition-duration: .5s;
-  transition-timing-function: ease-in-out; }
 
 /*
     Common style
@@ -52,30 +32,48 @@ span.tree, label.title {
 .tabset .tab {
   display: block; }
 
+/*
+    Title
+*/
 .tabset .toggle + .title {
   position: relative;
-  display: block;
+  display: inline-block;
   margin: 0;
   padding: 0;
   border: 0;
   cursor: pointer;
   width: 100%;
   z-index: 100;
-
   transition-property: background-color;
   transition-duration: .5s;
   transition-timing-function: ease-in-out; }
 
-.tabset .toggle + .title::before {
-  display: none !important; }
-.tabset .toggle + .title::after {
-  content: "";
-  position: absolute;
-  left: 15px;
-  bottom: 10px;
-  width: 22px;
-  height: 4px;
-  background: rgba(210, 215, 217, 0.75); }
+/*
+    Patch
+*/
+.tabset .tab .patch {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  transition-property: max-height, background-color;
+  transition-duration: .5s;
+  transition-timing-function: ease-in-out; }
+
+/*
+    Diff
+*/
+.remove {
+  color: red; }
+
+.add {
+  color: green; }
 
 /*
     Active
@@ -83,11 +81,6 @@ span.tree, label.title {
 .tabset .title:hover,
 .tabset .toggle:focus + .title {
   color: #0000ff; }
-
-.tabset .title:hover::after,
-.tabset .toggle:focus + .title::after,
-.tabset .toggle:checked + .title::after {
-  background: #0000ff; }
 
 .tabset .toggle:checked + .title {
   background-color: #111111; }
@@ -98,13 +91,4 @@ span.tree, label.title {
 
 /*# sourceMappingURL=manual.css.map */
 
-/*
-    Diff
-*/
-.remove {
-  color: red;
-}
-
-.add {
-  color: green;
-}
+/*# sourceMappingURL=manual.css.map */
