@@ -13,6 +13,35 @@ span.tree, label.title {
 }
 
 /*
+    Branch
+*/
+
+.branch {
+    font-weight: bold;
+}
+
+/*
+    Terminal
+*/
+
+.terminal {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0;
+    border: none;
+    padding-right: 0.25em;
+
+    border-right: .2em solid #ffffff; /* The typwriter cursor */
+    animation: 
+        blinking-caret 1s step-end infinite;
+}
+
+/* The typewriter cursor effect */
+@keyframes blinking-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ffffff; }
+}
+/*
     Topology
 */
 
