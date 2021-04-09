@@ -8,17 +8,35 @@ body {
     font-size: 2vmin;
 }
 
-span.tree, label.title {
-	font-weight: bold;
+span.tree, label.title, .prompt, .terminal {
+    font-weight: bold;
 }
 
 /*
-    Branch
+    Logo
 */
 
-.branch {
+div#logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1em;
+}
+
+.logo-left, .logo-right {
+    font-size: 8vmin;
     font-weight: bold;
 }
+
+.logo-right {
+    margin-left: -5vmin;
+    color: red
+}
+
+/*
+    Console Header
+*/
 
 /*
     Terminal
@@ -46,8 +64,9 @@ span.tree, label.title {
 */
 
 .tree {
+    position: relative;
     display: inline-block;
-	width: 2%;
+    width: 2%;
 }
 
 /*
@@ -82,7 +101,7 @@ span.tree, label.title {
     border: 0;
     cursor: pointer;
     width: 100%;
-    z-index: 100;
+    z-index: 10;
 
     transition-property: background-color;
     transition-duration: .5s;
